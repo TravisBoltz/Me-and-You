@@ -6,7 +6,8 @@ import "./globals.css";
 import { usePathname } from "next/navigation";
 import SplashScreen from "../components/splashScreen";
 import { useEffect, useState } from "react";
-
+// import { ThemeProvider } from "@/components/ThemeProvider";
+import { ThemeProvider } from "next-themes";
 // const inter: Inter = Inter({ subsets: ["latin"] });
 
 // export const metadata: { title: string; description: string } = {
@@ -32,11 +33,20 @@ export default function RootLayout({ children }: Props): JSX.Element {
   return (
     <html lang="en">
       <body>
+        {/* <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        > */}
         {isLoading && isHome ? (
           <SplashScreen finishLoading={() => setIsLoading(false)} />
         ) : (
           <>{children}</>
+
         )}
+        {/* </ThemeProvider> */}
+
       </body>
     </html>
   );
