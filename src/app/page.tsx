@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import { useState } from "react";
+import SideBar from "@/components/sideNav";
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
   const toggleMode = () => {
@@ -9,7 +10,8 @@ export default function Home() {
   }
   // const { resolvedTheme, theme, setTheme } = useTheme();
   return (
-    <div className={`${darkMode && "dark"} `}>
+    <div className={`${darkMode && "dark"} flex`}>
+      <SideBar />
       <main className="flex min-h-screen justify-between dark:bg-gray-600 p-4">
         <h1 className="text-4xl font-bold dark:text-white">Me and You!</h1>
         {/* <button onClick={toggleMode} className="bg-black  dark:bg-white text-white  dark:text-black font-bold py-2 px-4 rounded"> {darkMode ? "Light" : "Dark"} </button> */}
