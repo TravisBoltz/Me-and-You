@@ -49,7 +49,7 @@ export default function Dashboard() {
     <>
       <div className="h-screen p-8  flex items-center justify-center">
         <Tabs defaultValue="Login into account" className="w-[400px]">
-          <TabsList className="grid w-full bg-gray-400 text-white grid-cols-2">
+          <TabsList className="grid w-full   text-black grid-cols-2">
             <TabsTrigger
               value="Login into account"
               onClick={() => setUserType("Login into account")}
@@ -119,11 +119,23 @@ export default function Dashboard() {
                               onChange={handlePasswordChange}
                             />
                           </div>
-                          <Button type="submit" className=" w-full">
+                          <Button
+                            variant="outline"
+                            type="submit"
+                            className=" w-full border-gray-700"
+                          >
                             Login into account
                           </Button>
-                          <Button variant="outline" className="w-full ">
-                            Login into account with Google
+                          <Button
+                            variant="outline"
+                            className="flex w-full border-green-600 text-green-600 "
+                          >
+                            <img
+                              src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+                              alt="Google Logo"
+                              className="h-5 mr-2"
+                            />
+                            Signin with Google
                           </Button>
                         </div>
                       </div>
@@ -156,12 +168,14 @@ export default function Dashboard() {
                     <div className="flex items-center justify-center p-auto">
                       <div className="mx-auto grid w-[350px] gap-2">
                         <div className="grid gap-2 text-center">
-                          <h2 className="text-gray-600 font-bold text-3xl leading-normal"></h2>
+                          <h2 className="text-gray-600 font-bold text-3xl leading-normal">
+                            Let's Connect.....{" "}
+                          </h2>{" "}
                           <h1 className="text-xl font-bold">
                             Create an account
                           </h1>
                           <p className="text-balance text-muted-foreground">
-                            Let's connect....
+                            Join our community by creating an account
                           </p>
                         </div>
                         <div className="grid gap-4">
@@ -187,7 +201,7 @@ export default function Dashboard() {
                               onChange={handleEmailChange}
                             />
                           </div>{" "}
-                          <div className="">
+                          {/* <div className="">
                             <Label htmlFor="email">Email</Label>
                             <Input
                               id="email"
@@ -197,7 +211,7 @@ export default function Dashboard() {
                               value={email}
                               onChange={handleEmailChange}
                             />
-                          </div>
+                          </div> */}
                           <div className="grid gap-2">
                             <div className="flex items-center">
                               <Label htmlFor="password">Password</Label>
@@ -210,11 +224,24 @@ export default function Dashboard() {
                               onChange={handlePasswordChange}
                             />
                           </div>
-                          <Button type="submit" className=" w-full">
-                            Login into account
+                          <Button
+                            variant="outline"
+                            type="submit"
+                            className=" w-full border-gray-700"
+                          >
+                            Create an account
                           </Button>
-                          <Button variant="outline" className="w-full ">
-                            Login into account with Google
+                          <Button
+                            variant="outline"
+                            className="w-full border-green-500 text-green-500 flex"
+                          >
+                            {" "}
+                            <img
+                              src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+                              alt="Google Logo"
+                              className="h-5 mr-2"
+                            />
+                            Signup with Google
                           </Button>
                         </div>
                       </div>
