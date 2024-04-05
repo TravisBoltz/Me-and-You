@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
-
+import { auth } from "@/dbConfig/firebase"
+import { signOut } from "firebase/auth";
 const Chat = () => {
   return (
     <section className="flex border-b-slate-600 items-center py-2 justify-evenly">
@@ -29,6 +30,7 @@ const SideBar = () => {
             src={"https://random.imagecdn.app/500/150"}
           />
           <span className="dark:text-white">User Name</span>
+          <button className="text-white bg-gray-800 p-2 rounded-xl" onClick={() => signOut(auth)}>SignOut</button>
         </section>
         <button className="mt-2 flex items-center mx-auto justify-center bg-gray-400 rounded-md px-14 text-white font-bold py-2">
           Add Chat

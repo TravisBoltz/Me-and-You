@@ -18,6 +18,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-firebase-hooks": "^5.1.1",
+    "react-sidebar-web": "^0.0.16-beta",
     "shadcn-ui": "^0.8.0",
     "tailwind-merge": "^2.2.2"
   },

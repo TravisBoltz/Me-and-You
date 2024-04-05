@@ -1,53 +1,47 @@
 "use client";
+import { useState, useEffect } from "react";
+import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  // CardDescription,
-  // CardFooter,
-  // CardHeader,
-  // CardTitle,
-} from "@/components/ui/card";
-// import Footer from "../../../(components)/Footer";
+import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { auth } from "@/dbConfig/firebase";
+
 export default function Dashboard() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [userType, setUserType] = useState("Login into account");
+  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
+  useEffect(() => {
+    // If user is logged in, redirect to another page
+    if (user) {
+      window.location.href = "/chatPage";
+    }
+  }, [user]);
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
 
-  const validateEmail = () => {
-    const re =
-      userType === "Login into account"
-        ? /^[a-z0-9]+@knust\.edu\.gh$/
-        : /^[a-z0-9]+@st\.knust\.edu\.gh$/;
-    return re.test(email);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!validateEmail()) {
-      alert("Invalid email format for " + userType);
-      return;
-    }
-    // Continue with form submission
-  };
-
   return (
     <>
-      <div className="h-screen p-8  flex items-center justify-center">
+      {loading && (
+        <div className="fixed top-0 left-0 w-screen h-screen bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="animate-spin rounded-full h-20 w-20 border-t-2 border-b-2 border-gray-900"></div>
+        </div>
+      )}
+      <div
+        className={`h-screen p-8 flex items-center justify-center ${
+          loading ? "opacity-25" : ""
+        }`}
+      >
         <Tabs defaultValue="Login into account" className="w-[400px]">
           <TabsList className="grid w-full   text-black grid-cols-2">
             <TabsTrigger
@@ -66,7 +60,7 @@ export default function Dashboard() {
           <TabsContent value="Login into account">
             <Card>
               <CardContent className="space-y-2">
-                <form action="" onSubmit={handleSubmit} className="w-full">
+                <form action="" onSubmit={""} className="w-full">
                   <div className="w-full ">
                     <Image
                       className="mx-auto mt-2 "
@@ -127,6 +121,9 @@ export default function Dashboard() {
                             Login into account
                           </Button>
                           <Button
+                            onClick={
+                              () => signInWithGoogle() //"", { prompt: "select account" })
+                            }
                             variant="outline"
                             className="flex w-full border-green-600 text-green-600 "
                           >
@@ -157,7 +154,7 @@ export default function Dashboard() {
           <TabsContent value="Create an account">
             <Card>
               <CardContent className="space-y-2">
-                <form action="" onSubmit={handleSubmit} className="w-full">
+                <form action="" onSubmit={""} className="w-full">
                   <div className="w-full ">
                     <Image
                       className="mx-auto mt-2 "
@@ -232,6 +229,9 @@ export default function Dashboard() {
                             Create an account
                           </Button>
                           <Button
+                            onClick={
+                              () => signInWithGoogle() //"", { prompt: "select account" })
+                            }
                             variant="outline"
                             className="w-full border-green-500 text-green-500 flex"
                           >
@@ -259,7 +259,6 @@ export default function Dashboard() {
                 </form>
               </CardContent>
             </Card>
-            \{" "}
           </TabsContent>
         </Tabs>
       </div>
