@@ -137,15 +137,6 @@ export default function Dashboard() {
                         </div>
                       </div>
                     </div>
-                    {/* <div className="hidden bg-muted lg:block">
-                     <Image
-                      src="/.png"
-                      alt="Image"
-                      width="1920"
-                      height="1080"
-                      className="h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
-                    /> 
-                  </div> */}
                   </div>
                 </form>
               </CardContent>
@@ -166,7 +157,7 @@ export default function Dashboard() {
                       <div className="mx-auto grid w-[350px] gap-2">
                         <div className="grid gap-2 text-center">
                           <h2 className="text-gray-600 font-bold text-3xl leading-normal">
-                            Let's Connect.....{" "}
+                            Let's Connect.....
                           </h2>{" "}
                           <h1 className="text-xl font-bold">
                             Create an account
@@ -197,18 +188,7 @@ export default function Dashboard() {
                               value={email}
                               onChange={handleEmailChange}
                             />
-                          </div>{" "}
-                          {/* <div className="">
-                            <Label htmlFor="email">Email</Label>
-                            <Input
-                              id="email"
-                              type="email"
-                              placeholder="username@knust.edu.gh"
-                              required
-                              value={email}
-                              onChange={handleEmailChange}
-                            />
-                          </div> */}
+                          </div>
                           <div className="grid gap-2">
                             <div className="flex items-center">
                               <Label htmlFor="password">Password</Label>
@@ -246,15 +226,6 @@ export default function Dashboard() {
                         </div>
                       </div>
                     </div>
-                    {/* <div className="hidden bg-muted lg:block">
-                     <Image
-                      src="/.png"
-                      alt="Image"
-                      width="1920"
-                      height="1080"
-                      className="h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
-                    /> 
-                  </div> */}
                   </div>
                 </form>
               </CardContent>
@@ -262,7 +233,6 @@ export default function Dashboard() {
           </TabsContent>
         </Tabs>
       </div>
-      {/* <Footer /> */}
     </>
   );
 }
