@@ -66,9 +66,7 @@ const SplashScreen = ({ finishLoading }) => {
           width={200}
           height={200}
         />
-        <h1 className="text-black font-bold text-2xl">
-          Let'{"&apos"}s Connect
-        </h1>
+        <h1 className="text-black font-bold text-2xl">Let{"&apos"}s Connect</h1>
       </div>
     </>
   );
