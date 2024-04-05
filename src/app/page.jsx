@@ -157,7 +157,7 @@ export default function Dashboard() {
                       <div className="mx-auto grid w-[350px] gap-2">
                         <div className="grid gap-2 text-center">
                           <h2 className="text-gray-600 font-bold text-3xl leading-normal">
-                            Let{"&apos"}s Connect.....
+                            Lets Connect.....
                           </h2>{" "}
                           <h1 className="text-xl font-bold">
                             Create an account
