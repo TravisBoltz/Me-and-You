@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { auth } from "@/dbConfig/firebase"
 import { signOut } from "firebase/auth";
+import { FaPlus } from "react-icons/fa"; // Import the plus icon
 
 // Define the props for the Chat component
 interface ChatProps {
@@ -57,9 +58,15 @@ const SideBar: React.FC = () => {
         {isExpanded && <button className="text-white bg-gray-800 p-2 rounded-xl" onClick={() => signOut(auth)}>SignOut</button>}
       </section>
       {/* // Display a button to add a new chat when the sidebar is expanded */}
-      {isExpanded && <button className="mt-2 flex items-center mx-auto justify-center bg-gray-400 rounded-md px-14 text-white font-bold py-2">
-        Add Chat
-      </button>}
+      {isExpanded ? (
+        <button className="bg-gray-500 flex mt-3 justify-center items-center mx-auto hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md">
+          Add Chat<FaPlus className="inline-block ml-2 " /> {/* Plus icon */}
+        </button>
+      ) : (
+        <button className="bg-gray-500 flex justify-center items-center mx-auto hover:bg-blue-600 text-white font-semibold rounded-full p-2">
+          <FaPlus className="inline-block" /> {/* Plus icon */}
+        </button>
+      )}
       {/* Add a button to toggle the isExpanded state */}
 
       <button className="bg-gray-600 text-white" onClick={toggleExpanded}>
