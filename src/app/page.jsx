@@ -21,7 +21,7 @@ export default function Dashboard() {
   };
   useEffect(() => {
     // If user is logged in, redirect to another page
-    if (user) {
+    if (!user) {
       window.location.href = "/chatPage";
     }
   }, [user]);

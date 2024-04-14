@@ -55,7 +55,7 @@ const SideBar: React.FC = () => {
           src={"https://random.imagecdn.app/500/150"}
         />
         {isExpanded && <span className="dark:text-white">User Name</span>}
-        {isExpanded && <button className="text-white bg-gray-800 p-2 rounded-xl" onClick={() => signOut(auth)}>SignOut</button>}
+        {isExpanded && <button className="text-white dark:text-gray-800 dark:bg-white bg-gray-800 p-2 rounded-xl" onClick={() => signOut(auth)}>SignOut</button>}
       </section>
       {/* // Display a button to add a new chat when the sidebar is expanded */}
       {isExpanded ? (
@@ -68,10 +68,10 @@ const SideBar: React.FC = () => {
         </button>
       )}
       {/* Add a button to toggle the isExpanded state */}
-
+      {/* 
       <button className="bg-gray-600 text-white" onClick={toggleExpanded}>
         {isExpanded ? "Collapse" : "Expand"}
-      </button>
+      </button> */}
       {/* // Display the list of chats */}
       <div className="overflow-y-auto h-full" style={{ maxHeight: "calc(100vh - 150px)" }}>
         <Chat isExpanded={isExpanded} />

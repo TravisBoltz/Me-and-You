@@ -5,7 +5,7 @@ import Header from "@/components/navBar";
 import SideBar from "@/components/sideNav";
 import Submit from "@/components/submit";
 import ChatArea from "@/components/chatArea";
-export default function Home() {
+export default function ChatPage() {
     //dark mode function
     const [darkMode, setDarkMode] = useState(false);
     const toggleMode = () => {

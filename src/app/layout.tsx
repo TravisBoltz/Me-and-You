@@ -8,6 +8,9 @@ import SplashScreen from "../components/splashScreen";
 import { useEffect, useState } from "react";
 // import { ThemeProvider } from "@/components/ThemeProvider";
 import { ThemeProvider } from "next-themes";
+import { auth } from "@/dbConfig/firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+
 // const inter: Inter = Inter({ subsets: ["latin"] });
 
 // export const metadata: { title: string; description: string } = {
@@ -23,12 +26,18 @@ export default function RootLayout({ children }: Props): JSX.Element {
   const pathname: string = usePathname();
   const isHome: boolean = pathname === "/";
   const [isLoading, setIsLoading] = useState<boolean>(isHome);
+  const [user, loading, error] = useAuthState(auth)
 
-  useEffect(() => {
-    if (isLoading) {
-      return;
-    }
-  }, [isLoading]);
+  // if (user) {
+  //   return <div>User</div>
+  // }
+
+  // useEffect(() => {
+
+  //   if (isLoading) {
+  //     return;
+  //   }
+  // }, [isLoading]);
 
   return (
     <html lang="en">
